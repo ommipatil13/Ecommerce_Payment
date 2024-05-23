@@ -75,14 +75,14 @@ const CardDetails = () => {
 
     //payment
     const makePayment = async () => {
-        const stripe = await loadStripe("pk_test_51PIuutSAo5yI3WPv49mSm9NOcJgkabdLewwzBVmugpPmvTKRaOq4VtaBVn9aihVyEFDWrFwzPzTqveIdwVsQd5Wz00bE0DXHQJ")
+        const stripe = await loadStripe(process.env.PUBLIC_KEY)
         const body = {
             products: carts
         }
         const headers = {
             "Content-Type": "application/json"
         }
-        const response = await fetch("http://localhost:7000/api/create-checkout-session", {
+        const response = await fetch("/api/create-checkout-session", {
             method: "POST",
             headers: headers,
             body: JSON.stringify(body)

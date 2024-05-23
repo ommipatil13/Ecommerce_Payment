@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const stripe = require("stripe")("sk_test_51PIuutSAo5yI3WPvmeSvG9auNCtSFxfvlnJBUwQb2rnJYZq4DKJe3SdetIpeWEFGVKMh9RKEXX8kQcb4Eua3OKeW00aU9sZOZs")
+require('dotenv').config();
+
+
+const stripe = require("stripe")(process.env.SECRET_KET)
 
 const path = require('path')
 

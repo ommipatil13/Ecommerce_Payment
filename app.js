@@ -3,6 +3,8 @@ const app = express();
 const cors = require('cors');
 const stripe = require("stripe")("sk_test_51PIuutSAo5yI3WPvmeSvG9auNCtSFxfvlnJBUwQb2rnJYZq4DKJe3SdetIpeWEFGVKMh9RKEXX8kQcb4Eua3OKeW00aU9sZOZs")
 
+const path = require('path')
+
 app.use(express.json())
 app.use(cors())
 
@@ -34,11 +36,11 @@ app.post('/api/create-checkout-session', async (req, res) => {
 })
 
 
-// app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
-// app.get("*", function (req, res) {
-//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 
 app.listen(7000, () => {

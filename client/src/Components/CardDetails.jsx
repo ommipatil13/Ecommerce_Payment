@@ -75,6 +75,7 @@ const CardDetails = () => {
 
     //payment
     const makePayment = async () => {
+        alert('hello')
         const stripe = await loadStripe(process.env.PUBLIC_KEY)
         const body = {
             products: carts
